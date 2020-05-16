@@ -2,7 +2,7 @@
 # ansible_user: root
 
 # Kubernetes
-kube_version: v1.16.3
+kube_version: v1.18.2
 token: b0f7b8.8d1767876297d85c
 
 # 1.8.x feature: --feature-gates SelfHosting=true
@@ -23,7 +23,7 @@ network: calico
 # For example, on DigitalOcean, you would use eth1 as that is the default private network interface.
 network_interface: ""
 
-enable_dashboard: yes
+enable_dashboard: no
 
 # A list of insecure registries you might need to define
 # insecure_registries: []

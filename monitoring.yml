@@ -1,0 +1,25 @@
+- name: Configuring the monitoring system for k8s cluster
+  hosts: master
+  tasks:
+   - name: cloning kubernetes monitoring github repository 
+     git:
+       repo: "https://github.com/vigneshsweekaran/kubernetes_monitoring.git"
+       version: master
+       dest: ~/monitoring
+   
+   - name: Create a k8s namespace
+     command: "kubectl create namespace capstone"
+     ignore_errors: yes
+
+   - name: Create monitoring namespace
+     command: "kubectl apply -f ~/monitoring"
+
+   - name: Create kubestate metrics objects
+     command: "kubectl apply -f ~/monitoring/kube_state_metrics"
+
+   - name: Create prometheus objects
+     command: "kubectl apply -f ~/monitoring/prometheus"
+
+   - name: Create grafana objects
+     command: "kubectl apply -f ~/monitoring/grafana"
+
